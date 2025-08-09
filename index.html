@@ -6,13 +6,12 @@
     <title>Surya Alla - AI Engineer</title>
     <style>
         :root {
-            --bg: #0a0a0a;
+            --bg: #000000;
             --text-primary: #ffffff;
-            --text-secondary: #9ca3af;
-            --text-muted: #6b7280;
-            --accent: #3b82f6;
-            --accent-hover: #2563eb;
-            --border: rgba(255, 255, 255, 0.1);
+            --text-secondary: #888888;
+            --text-muted: #555555;
+            --accent: #ffffff;
+            --border: rgba(255, 255, 255, 0.05);
         }
 
         * {
@@ -22,216 +21,109 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: var(--bg);
             color: var(--text-primary);
-            line-height: 1.7;
+            line-height: 1.6;
             font-size: 15px;
+            font-weight: 300;
         }
 
         .container {
-            max-width: 680px;
+            max-width: 600px;
             margin: 0 auto;
-            padding: 3rem 2rem;
+            padding: 4rem 2rem;
             min-height: 100vh;
         }
 
         .avatar-container {
             display: flex;
             justify-content: center;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
         }
 
         .avatar {
-            width: 80px;
-            height: 80px;
+            width: 64px;
+            height: 64px;
             border-radius: 50%;
             overflow: hidden;
-            border: 2px solid var(--border);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .avatar:hover {
-            border-color: var(--accent);
-            transform: scale(1.05);
+            opacity: 0.9;
         }
 
         .avatar img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: all 0.3s ease;
-        }
-
-        .avatar:hover img {
-            filter: brightness(1.1);
         }
 
         .intro {
-            font-size: 15px;
-            line-height: 1.7;
+            font-size: 16px;
+            line-height: 1.6;
             color: var(--text-secondary);
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
+            text-align: center;
         }
 
         .intro strong {
             color: var(--text-primary);
-            font-weight: 500;
+            font-weight: 400;
         }
 
         .section {
             margin-bottom: 4rem;
-            opacity: 0;
-            animation: fadeIn 0.8s ease forwards;
         }
 
-        .section:nth-child(2) { animation-delay: 0.1s; }
-        .section:nth-child(3) { animation-delay: 0.2s; }
-        .section:nth-child(4) { animation-delay: 0.3s; }
-        .section:nth-child(5) { animation-delay: 0.4s; }
+        .section-title {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
 
-        .experience-item {
-            margin-bottom: 2.5rem;
-            padding-bottom: 2.5rem;
+        .item {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .item:not(:last-child) {
             border-bottom: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
-
-        .experience-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .experience-item:hover {
-            transform: translateX(4px);
         }
 
         .period {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--text-muted);
             margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
-        .company {
+        .company, .project-title, .degree {
             font-size: 15px;
             color: var(--text-primary);
-            font-weight: 500;
-            margin-bottom: 0.3rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
         }
 
-        .role {
-            font-size: 15px;
+        .description, .project-description {
+            font-size: 14px;
+            line-height: 1.5;
             color: var(--text-secondary);
-            margin-bottom: 0.8rem;
-        }
-
-        .description {
-            font-size: 15px;
-            line-height: 1.7;
-            color: var(--text-secondary);
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
         }
 
         .tech-stack {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--text-muted);
-        }
-
-        .project-item {
-            margin-bottom: 2.5rem;
-            padding-bottom: 2.5rem;
-            border-bottom: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
-
-        .project-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .project-item:hover {
-            transform: translateX(4px);
-        }
-
-        .project-status {
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .project-title {
-            font-size: 15px;
-            color: var(--text-primary);
-            font-weight: 500;
-            margin-bottom: 0.8rem;
-        }
-
-        .project-description {
-            font-size: 15px;
-            line-height: 1.7;
-            color: var(--text-secondary);
-            margin-bottom: 0.8rem;
-        }
-
-        .links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 3rem;
-        }
-
-        .link {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 13px;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        .link:hover {
-            color: var(--accent);
-            border-bottom-color: var(--accent);
-        }
-
-        .education-item {
-            margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
-
-        .education-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .education-item:hover {
-            transform: translateX(4px);
-        }
-
-        .degree {
-            font-size: 15px;
-            color: var(--text-primary);
-            font-weight: 500;
-            margin-bottom: 0.3rem;
         }
 
         .institution {
-            font-size: 15px;
+            font-size: 14px;
             color: var(--text-secondary);
             margin-bottom: 0.3rem;
         }
 
         .year {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--text-muted);
         }
 
@@ -239,26 +131,49 @@
             margin-top: 4rem;
             padding-top: 2rem;
             border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .contact-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
         }
 
         .email {
-            color: var(--accent);
+            color: var(--text-primary);
             text-decoration: none;
             font-size: 15px;
-            transition: all 0.3s ease;
+            font-weight: 400;
         }
 
-        .email:hover {
-            color: var(--accent-hover);
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .footer {
             margin-top: 4rem;
             padding-top: 2rem;
             border-top: 1px solid var(--border);
-            font-size: 13px;
+            font-size: 11px;
             color: var(--text-muted);
             text-align: center;
+            line-height: 1.4;
+        }
+
+        .footer p {
+            margin-bottom: 0.3rem;
         }
 
         .footer a {
@@ -266,165 +181,125 @@
             text-decoration: none;
         }
 
-        .footer a:hover {
-            color: var(--accent);
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         @media (max-width: 768px) {
             .container {
-                padding: 2rem 1rem;
+                padding: 3rem 1.5rem;
             }
             
             .links {
                 flex-direction: column;
-                gap: 0.5rem;
+                gap: 1rem;
             }
         }
 
-        /* Smooth scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Selection color */
         ::selection {
-            background: var(--accent);
+            background: rgba(255, 255, 255, 0.1);
             color: white;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header class="header">
+        <header>
             <div class="avatar-container">
                 <div class="avatar">
-                    <img src="profile_foto.png" alt="Surya Alla Avatar" id="avatar-image">
+                    <img src="profile_foto.png" alt="Surya Alla">
                 </div>
             </div>
             <div class="intro">
-                I'm <strong>Surya</strong>. I enjoy building dynamic AI-powered products from start to finish. 
-                Focused on developing LLM integrations and production AI systems that constantly grow and 
-                improve based on real-world deployment. Always shipping.
+                I'm <strong>Surya</strong>. I build AI-powered products from start to finish. 
+                Focused on LLM integrations and production AI systems. Always shipping.
             </div>
         </header>
 
-        <section class="section" id="experience">
+        <section class="section">
             <h2 class="section-title">Experience</h2>
-            <div class="experience-item">
+            
+            <div class="item">
                 <div class="period">2023 - present</div>
                 <div class="company">Computer Vision & AI Engineer at Fraunhofer FIT</div>
                 <div class="description">
-                    Led GenAI enablement initiatives across development teams, coaching engineers in LLM integration 
-                    best practices and prompt engineering techniques for medical AI applications. Implemented 
-                    production-ready LLM deployment pipelines reducing document processing latency from 30 to 10 seconds 
-                    through optimized AI service integration.
+                    Led GenAI enablement initiatives across development teams. Implemented production-ready 
+                    LLM deployment pipelines reducing document processing latency from 30 to 10 seconds.
                 </div>
-                <div class="tech-stack">FastAPI • Docker • AWS • GitLab CI/CD • Python</div>
+                <div class="tech-stack">FastAPI • Docker • AWS • Python</div>
             </div>
 
-            <div class="experience-item">
+            <div class="item">
                 <div class="period">2022 - 2024</div>
                 <div class="company">Technical Co-Founder at InnoSaddle GbR</div>
                 <div class="description">
-                    Drove cross-functional AI adoption strategy, collaborating with stakeholders to implement 
-                    LLM-powered prototypes and establish technical development standards for production AI applications. 
-                    Designed scalable AI architecture for 3D data processing workflows with containerized deployment 
-                    solutions.
+                    Drove AI adoption strategy. Implemented LLM-powered prototypes and established 
+                    technical development standards for production AI applications.
                 </div>
-                <div class="tech-stack">LLMs • Computer Vision • Cloud Architecture • Docker</div>
+                <div class="tech-stack">LLMs • Computer Vision • Docker</div>
             </div>
 
-            <div class="experience-item">
+            <div class="item">
                 <div class="period">2022 - 2023</div>
                 <div class="company">Working Student at Fraunhofer FIT</div>
                 <div class="description">
-                    Automated AI workflow optimization by implementing standardized GitLab CI/CD pipelines with Docker 
-                    containerization, reducing deployment time by 10%. Coached junior developers in AI fundamentals 
-                    and computer vision techniques, improving team productivity by 30%.
+                    Automated AI workflow optimization with GitLab CI/CD pipelines. 
+                    Coached junior developers in AI fundamentals.
                 </div>
-                <div class="tech-stack">PyTorch • OpenCV • Docker • Python • Computer Vision</div>
+                <div class="tech-stack">PyTorch • OpenCV • Python</div>
             </div>
         </section>
 
-        <section class="section" id="projects">
+        <section class="section">
             <h2 class="section-title">Projects</h2>
-            <div class="project-item">
-                <div class="project-status">Ongoing</div>
+            
+            <div class="item">
+                <div class="period">Ongoing</div>
                 <div class="project-title">Advanced RAG System with LLM Integration</div>
                 <div class="project-description">
-                    Production-ready Retrieval-Augmented Generation system using state-of-the-art LLMs and vector databases. 
-                    Achieved 60% faster performance and sub-second query responses through backend optimization and 
-                    efficient LLM integration.
+                    Production-ready Retrieval-Augmented Generation system. Achieved 60% faster performance 
+                    and sub-second query responses through backend optimization.
                 </div>
-                <div class="tech-stack">Python • FastAPI • OpenAI GPT • Vector Databases • AWS</div>
+                <div class="tech-stack">Python • FastAPI • OpenAI GPT • AWS</div>
             </div>
 
-            <div class="project-item">
-                <div class="project-status">2024</div>
-                <div class="project-title">Model Context Protocol (MCP) – LangGraph Agent Integration</div>
+            <div class="item">
+                <div class="period">2024</div>
+                <div class="project-title">Model Context Protocol – LangGraph Agent</div>
                 <div class="project-description">
-                    Integrated the Model Context Protocol with a LangGraph Agent, enabling dynamic connection to MCP servers 
-                    for accessing external tools, APIs, and data sources. Implemented automatic tool discovery and 
-                    multi-server support.
+                    Integrated MCP with LangGraph Agent for dynamic connection to external tools and APIs. 
+                    Implemented automatic tool discovery and multi-server support.
                 </div>
-                <div class="tech-stack">LangGraph • Model Context Protocol • Docker • Python</div>
+                <div class="tech-stack">LangGraph • MCP • Python</div>
             </div>
 
-            <div class="project-item">
-                <div class="project-status">2024</div>
-                <div class="project-title">Multi-Model AI Server with Production Optimization</div>
+            <div class="item">
+                <div class="period">2024</div>
+                <div class="project-title">Multi-Model AI Server</div>
                 <div class="project-description">
-                    Engineered scalable server infrastructure integrating multiple LLM providers (OpenAI, open-source models 
-                    via Ollama). Implemented optimized API interfaces for production AI workflows with dynamic model selection 
-                    and load balancing.
+                    Engineered scalable server infrastructure integrating multiple LLM providers. 
+                    Optimized API interfaces for production workflows.
                 </div>
-                <div class="tech-stack">Docker • FastAPI • Ollama • OpenAI API • Production Deployment</div>
-            </div>
-
-            <div class="project-item">
-                <div class="project-status">2023</div>
-                <div class="project-title">Model Optimization & Deployment Pipeline</div>
-                <div class="project-description">
-                    Implemented backend services for model deployment reducing memory footprint by 40% while maintaining 
-                    performance. Developed production-ready deployment workflows for edge devices with comprehensive 
-                    monitoring and reliability checks.
-                </div>
-                <div class="tech-stack">Python • Docker • TensorRT • Production Systems</div>
+                <div class="tech-stack">Docker • FastAPI • Ollama</div>
             </div>
         </section>
 
-        <section class="section" id="about">
+        <section class="section">
             <h2 class="section-title">About</h2>
-            <div class="education-item">
+            
+            <div class="item">
                 <div class="degree">MSc. Mechatronics</div>
                 <div class="institution">University of Siegen</div>
                 <div class="year">2023</div>
             </div>
 
-            <div class="education-item">
+            <div class="item">
                 <div class="degree">BE Mechanical Engineering</div>
                 <div class="institution">CBIT, Hyderabad</div>
                 <div class="year">2017</div>
             </div>
         </section>
 
-        <section class="contact-section" id="links">
-            <div class="description">
-                If you would like to get in touch with me, be it for exploring a technology, a business, 
-                or to just say hi, feel free to send me an email.
+        <section class="contact-section">
+            <div class="contact-description">
+                Get in touch for exploring technology, business, or just to say hi.
             </div>
-            <br>
             <div>
                 <a href="mailto:asvp.0296@gmail.com" class="email">asvp.0296@gmail.com</a>
             </div>
@@ -437,55 +312,9 @@
         </section>
 
         <footer class="footer">
-            <p>Design inspiration from <a href="https://bonhomme.lol/" target="_blank">bonhomme.lol</a> by Max Bonhomme</p>
+            <p>Design inspiration from <a href="https://bonhomme.lol/">bonhomme.lol</a> by Max Bonhomme</p>
             <p>Made with ❤️ in Siegen, Germany on a calm night</p>
         </footer>
     </div>
-
-    <script>
-        // Smooth scrolling for any internal links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Add subtle hover effects
-        const items = document.querySelectorAll('.experience-item, .project-item, .education-item');
-        items.forEach(item => {
-            item.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateX(4px)';
-            });
-            item.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateX(0)';
-            });
-        });
-
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all sections
-        document.querySelectorAll('.section, .header').forEach(section => {
-            observer.observe(section);
-        });
-    </script>
 </body>
 </html>
