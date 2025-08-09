@@ -1,252 +1,700 @@
-<!DOCTYPE HTML>
-<!--
-    Here - Surya Vara Prasad Alla
-	taken from Hyperspace by HTML5 UP
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surya Alla - AI Engineer</title>
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent: #00ff88;
+            --accent-hover: #00cc6a;
+            --border: #333;
+        }
 
-<html>
-	<head>
-		<title>MY PORTFOLIO</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-		<!-- Sidebar -->
-			<section id="sidebar">
-				<div class="inner">
-					<nav>
-						<ul>
-							<li><a href="#intro">About</a></li>
-							<li><a href="#one">Experience</a></li>
-							<li><a href="#two">Projects</a></li>
-							<li><a href="#three">Education</a></li>
-							<li><a href="#four">Certifications</a></li>
-							<li><a href="#five">Connect</a></li>
-						</ul>
-					</nav>
-				</div>
-			</section>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+        }
 
-				<!-- Intro -->
-					<section id="intro" class="wrapper style1 fullscreen fade-up">
-						<div class="inner">
-							<a href="#" class="image"></a><img src="images/Photo.jpg" width="200px" align="right"/>
-							<h1>My Portfolio</h1>
-							
-							<p>I am Surya Vara Prasad Alla, and Pursuing Master Course in Mechatronics in Universität Siegen. I am developing skills to make my career in Embedded and Machine Learning</a>.</p>
-						    
-						</div>
-					</section>
+        .hero {
+            margin: 4rem 0 6rem 0;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
 
-				<!-- One -->
-					<section id="one" class="wrapper style3 spotlights">
-						<section>
-							<a href="#" class="image"><img src="images/University-of-Siegen.png" alt="" data-position="center center" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>Wissenschaftliche Hilfskraft (Hiwi)</h2>
-									<ul>+Implementation of Python structuring, module implementation using OOPS concept</ul>
-								    <ul>+Implementation of custom MATLAB documentation for New Custom Library Tool Box in MATLAB</ul>
-									<ul>+Earned Experience in Linear regression using least squares regression, Weighted Regression, Radial Basis Functions 
-										using MATLAB</ul>
-									</p>
-								</div>
-							</div>
-						</section>
-						<section>
-							<a href="#" class="image"><img src="images/Wipro_Primary_Logo_Color_RGB.svg.png" alt="" data-position="top center" /></a>
-							<div class="content">
-								<div class="inner">
-									<h3>Junior Software Developer</h3>
-									<p>+ As a developer I was responsible to process data from unstructured data (logs) of MS Teams application on various 
-										devices to structured data</p>
-									<p>+ SQLize the structured data to SQL Server, Data is stored in data warehouse and metrics are calculated on this data</p>
-                                    <p>+Using this data Power BI reports are generated which are consumed by customer higher management</p>
-								</div>
-							</div>
-						</section>
-					</section>
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-				<!-- Two -->
-					<section id="two" class="wrapper style2 spotlights">
-						<section>
-							<a href="#" class="image"><img src="images/download.jfif" alt="" data-position="center center" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>Embedded C Project</h2>
-									<ul>* Implementation on Texas instruments 16 bit MSP430 embedded board with non-volatile FRAM
-										* Transmission of stress and humidity measurements in a concrete bridge to the user using UART module for handling serial data
-										* Implemented with Code Composer Studio IDE using low power mode, PMW and clock modules in Embedded C Programming Language</ul>
-									</p>
-										<ul class="actions">
-											<li><a href="https://github.com/surya-1729/Embedded-Internship-Project-Embedded-C" class="GitHub">GitHub_Project_link</Link></a></li>
-										</ul>
-								</div>
-							</div>
-						</section>	
-						<section>
-							<a href="#" class="image"><img src="images/watch.jfif" alt="" data-position="center center" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>Bangle_JS-Watch_UI-design </h2>
-									<ul>* Implementation on Bangle JS opensource watch with espruino ide on JavaScript
-										* User interface design of foot steps count and percentage of goal reached, time display in a way which takes less time to understand(better glancability) 
-										* Time change and rename of screen using Touch and Swipe functionality 
-										* objective oriented programming implementation in the design </ul>
-									</p>
-									<ul class="actions">
-										<li><a href="https://github.com/surya-1729/Bangle-JS-opensource-Watch_UI-design" class="GitHub">GitHub_Project_link</Link></a></li>
-									</ul>
-								</div>
-							</div>
-						</section>	
-						<section>
-							<a href="#" class="image"><img src="images/31313_alt11.jpg" alt="" data-position="center center" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>Pick-and-place-mechanism-for-Lego-ev3-manipulator-robot </h2>
-									<ul>* Pick, Place and homing behaviors was developed on a LEGO Mindstorm EV3 robot using MATLAB
-										* Evaluated inverse kinematics model for the manipulator Robot
-										* Built a PID controller, that is fed by rotational encoders and touch sensors, for velocity and position control</ul>
-									</p>
-									<ul class="actions">
-										<li><a href="https://github.com/surya-1729/Pick-and-place-mechanism-for-Lego-ev3-manipulator-robot" class="GitHub">GitHub_Project_link</Link></a></li>
-									</ul>
-								</div>
-							</div>
-						</section>	
-						<section>
-							<a href="#" class="image"><img src="images/atmega128-developement-board-500x500.jpg" alt="" data-position="center center" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>Balance-a-ball-on-inclined-plane-using-PID-controller </h2>
-									<ul>* Designed and simulated a PID controller on the PWM signal of the servomotor in MATLAB
-										* Written control algorithm in Embedded C
-										* implemented on Atmega128 microcontroller running on FreeRTOS</ul>
-									</p>
-									<ul class="actions">
-										<li><a href="https://github.com/surya-1729/Balance-a-ball-on-inclined-plane-using-PID-controller" class="GitHub">GitHub_Project_link</Link></a></li>
-									</ul>
-								</div>
-							</div>
-						</section>	
-						<section>
-							<a href="#" class="image"><img src="images/machine-learning-programming.jpg" alt="" data-position="center center" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>Deep Learning Projects </h2>
-									<ul>+ Implementation of Gradient descent, Stochastic descent, Back Propagation in Numpy, PyTorch Libraries in Python</ul>
-									</p>
-									<ul class="actions">
-										<li><a href="https://github.com/surya-1729/Deep-Learning" class="GitHub">GitHub_Project_link</Link></a></li>
-									</ul>
-								</div>
-							</div>
-						</section>	
-						<section>
-							<a href="#" class="image"><img src="images" alt="" data-position="center center" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>Unmanned Military Vehicle </h2>
-									<ul></ul>
-									</p>
-									<ul class="actions">
-										<li><a href="" class="GitHub">GitHub_Project_link</Link></a></li>
-									</ul>
-								</div>
-							</div>
-						</section>	
-					</section>
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
 
-				<!-- Three -->
-				<section id="three" class="wrapper style3 spotlights">					 
-					<section>
-						<a href="#" class="image"><img src="images/University-of-Siegen.png" alt="" data-position="center center" /></a>
-						<div class="content">
-							<div class="inner">
-								<h2>Master of Science in Mechatronics </h2>
-								<ul>Majoring in Embedded Control ( MATLAB, SIMULINK), Ubiquitous Praktikum
-									(CCStudio, C Programming, Microcontroller ), Introduction to
-									Programming( Data Structures, Putty), Project Management, Ubiquitous Computing (Javascript Bangle JS Programming)</ul>
-								</p>
-							</div>
-						</div>
-					</section>	
-					<section>
-						<a href="#" class="image"><img src="images/Chaitanya_Bharathi_Institute_of_Technology_logo.png" alt="" data-position="center center" /></a>
-						<div class="content">
-							<div class="inner">
-								<h2>Bachelor of Science in Mechanical Engineering </h2>
-								<ul>Majoring in Finite Element Analysis, Machine Drawing, CAD/CAM,
-									SOLIDWORKS, Thermodynamics, Software Engineering 
-									Participated in Haptic-Robotic arm workshop (Robohaptica)</ul>
-								</p>
-							</div>
-						</div>
-					</section>	
-				</section>
+        .highlight {
+            color: var(--accent);
+            position: relative;
+        }
 
-				<!-- Four -->
-				<section id="four" class="wrapper style2 spotlights">
-				<section>
-					<a href="#" class="image"><img src="images/1200x630wa.png" alt="" data-position="center center" /></a>
-					<div class="content">
-						<div class="inner">
-							<h2>Python Course </h2>
-							<ul>python course in coursera</ul>
-							</p>
-						</div>
-					</div>
-				</section>	
-			</section>
+        .section {
+            margin: 4rem 0;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+        }
 
-				<!-- five -->
-				<section id="five" class="wrapper style1 spotlights">
-					<section>
-						<div class="content">
-							<div class="inner">
-								<h2>Contact</h2>
-								<ul>If you would like to get in touch with me, be it for exploring a technology, a business, or to just say hi, feel free to send me an email. My email address is: asvp.0296@gmail.com</ul>						
-							<h3>Social</h3>
-							<ul class="icons">
-								<li><a href="https://medium.com/@asvp.0296" class="icon brands fa-medium"><span class="label">medium</span></a></li>
-								<li><a href="https://github.com/surya-1729" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-								<li><a href="https://www.linkedin.com/in/surya1729/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-							</ul>
-						</li>
-					</ul>
-				</section>
-			</div>
-		</div>
-	</section>
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.4s; }
+        .section:nth-child(4) { animation-delay: 0.6s; }
+        .section:nth-child(5) { animation-delay: 0.8s; }
 
-		</div>
-						
+        .section-title {
+            font-size: 1.1rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
 
-		<!-- Footer -->
-			<footer id="footer" class="wrapper style1-alt">
-				<div class="inner">
-					<ul class="menu">
-						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
-				</div>
-			</footer>
+        .experience-item {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
 
-	</body>
+        .experience-item:hover::before {
+            transform: translateX(0);
+        }
+
+        .experience-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.1);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .experience-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .experience-period {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .company {
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-desc {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            padding: 0.3rem 0.8rem;
+            background: rgba(0, 255, 136, 0.1);
+            color: var(--accent);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .tech-tag:hover {
+            background: rgba(0, 255, 136, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .project-item {
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            border-left: 3px solid var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .project-item:hover {
+            background: rgba(26, 26, 26, 0.8);
+            transform: translateX(5px);
+        }
+
+        .project-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .project-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .social-link:hover::before {
+            left: 100%;
+        }
+
+        .social-link:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.2);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .skill-category h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .skill-list {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-dot {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-dot:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-dot:nth-child(2) {
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .floating-dot:nth-child(3) {
+            bottom: 30%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) scale(1);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translateY(-20px) scale(1.2);
+                opacity: 0.6;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .social-links {
+                flex-direction: column;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .cursor-follower {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid var(--accent);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1000;
+            transition: all 0.1s ease;
+            mix-blend-mode: difference;
+        }
+
+        .experience-list {
+            position: relative;
+        }
+
+        .experience-list::before {
+            content: '';
+            position: absolute;
+            left: -1rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--accent), transparent);
+            opacity: 0.3;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin: 4rem 0;
+            padding: 2rem;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .email-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .email-link:hover {
+            text-shadow: 0 0 10px var(--accent);
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="floating-dot"></div>
+        <div class="floating-dot"></div>
+        <div class="floating-dot"></div>
+    </div>
+    
+    <div class="cursor-follower"></div>
+
+    <div class="container">
+        <header class="hero">
+            <h1>I'm <span class="highlight">Surya</span>.</h1>
+            <p class="hero-subtitle">
+                AI Software Engineer specializing in <span class="highlight">LLM integration</span>, 
+                developer enablement, and production AI deployment. I focus on making AI accessible 
+                and developer-friendly, with 2+ years of experience coaching teams in GenAI adoption.
+            </p>
+        </header>
+
+        <section class="section">
+            <h2 class="section-title">Experience</h2>
+            <div class="experience-list">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="company">FRAUNHOFER FIT</div>
+                            <h3 class="experience-title">Computer Vision & AI Engineer</h3>
+                        </div>
+                        <span class="experience-period">2023 - present</span>
+                    </div>
+                    <p class="experience-desc">
+                        Leading GenAI enablement initiatives across development teams, implementing production-ready 
+                        LLM deployment pipelines, and establishing AI development standards. Reduced document processing 
+                        latency from 30 to 10 seconds while maintaining 97% accuracy in production environments.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">AWS</span>
+                        <span class="tech-tag">GitLab CI/CD</span>
+                        <span class="tech-tag">Python</span>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="company">INNOSADDLE GBR</div>
+                            <h3 class="experience-title">Technical Co-Founder</h3>
+                        </div>
+                        <span class="experience-period">2022 - 2024</span>
+                    </div>
+                    <p class="experience-desc">
+                        Drove cross-functional AI adoption strategy, mentored development teams in integrating 
+                        vision-language models, and designed scalable AI architecture for 3D data processing workflows. 
+                        Established knowledge sharing practices for sustainable GenAI adoption.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">LLMs</span>
+                        <span class="tech-tag">Computer Vision</span>
+                        <span class="tech-tag">Cloud Architecture</span>
+                        <span class="tech-tag">Docker</span>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="company">FRAUNHOFER FIT</div>
+                            <h3 class="experience-title">Computer Vision & AI Engineer (Working Student)</h3>
+                        </div>
+                        <span class="experience-period">2022 - 2023</span>
+                    </div>
+                    <p class="experience-desc">
+                        Automated AI workflow optimization using GitLab CI/CD pipelines, coached junior developers 
+                        in AI fundamentals, and implemented developer-friendly AI tools. Reduced deployment time by 10% 
+                        and preprocessing overhead by 50%.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">OpenCV</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">Python</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Featured Projects</h2>
+            
+            <div class="project-item">
+                <h3 class="project-title">Advanced RAG System with LLM Integration</h3>
+                <p class="project-desc">
+                    Engineered production-ready Retrieval-Augmented Generation system achieving 60% faster performance 
+                    and sub-second query responses. Implemented FastAPI endpoints with comprehensive error handling 
+                    and monitoring for concurrent users.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">FastAPI</span>
+                    <span class="tech-tag">OpenAI GPT</span>
+                    <span class="tech-tag">Vector Databases</span>
+                    <span class="tech-tag">AWS</span>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <h3 class="project-title">Model Context Protocol (MCP) – LangGraph Agent Integration</h3>
+                <p class="project-desc">
+                    Integrated MCP with LangGraph Agent for accessing external tools and APIs. Implemented automatic 
+                    tool discovery and multi-server support, enabling dynamic registration of new MCP-compatible services.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">LangGraph</span>
+                    <span class="tech-tag">Model Context Protocol</span>
+                    <span class="tech-tag">Docker</span>
+                    <span class="tech-tag">Python</span>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <h3 class="project-title">Multi-Model AI Server with Production Optimization</h3>
+                <p class="project-desc">
+                    Engineered scalable server infrastructure integrating multiple LLM providers (OpenAI, Ollama). 
+                    Developed comprehensive monitoring systems for production AI services with performance tracking.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">FastAPI</span>
+                    <span class="tech-tag">Ollama</span>
+                    <span class="tech-tag">OpenAI API</span>
+                    <span class="tech-tag">Docker</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Agentic AI & Robotics</h4>
+                    <p class="skill-list">LLMs • Autonomous Decision-Making • Agentic Workflows • Multi-Agent Systems</p>
+                </div>
+                <div class="skill-category">
+                    <h4>AI/ML Frameworks</h4>
+                    <p class="skill-list">Huggingface Transformers • PyTorch • TensorFlow • Langchain • OpenAI APIs</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Programming</h4>
+                    <p class="skill-list">Python • Modern C++ • CUDA Programming • ROS • Linux Systems</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Production Systems</h4>
+                    <p class="skill-list">FastAPI • RESTful APIs • Docker • GitLab CI/CD • AWS • MLOps</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Computer Vision</h4>
+                    <p class="skill-list">OpenCV • SAM • YOLO • Object Detection • Segmentation • 3D Analysis</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Generative AI</h4>
+                    <p class="skill-list">LLMs • NLP • RAG • Chatbot Development • Ollama • Prompt Engineering</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="company">University of Siegen</div>
+                        <h3 class="experience-title">MSc. Mechatronics</h3>
+                    </div>
+                    <span class="experience-period">2023</span>
+                </div>
+                <p class="experience-desc">
+                    Specialized in Embedded Control, Ubiquitous Computing, and Project Management. 
+                    Gained expertise in MATLAB, SIMULINK, microcontroller programming, and JavaScript development.
+                </p>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="company">CBIT, Hyderabad</div>
+                        <h3 class="experience-title">BE Mechanical Engineering</h3>
+                    </div>
+                    <span class="experience-period">2017</span>
+                </div>
+                <p class="experience-desc">
+                    Foundation in engineering principles with focus on CAD/CAM, SOLIDWORKS, and software engineering. 
+                    Participated in haptic-robotic arm workshop (Robohaptica).
+                </p>
+            </div>
+        </section>
+
+        <section class="section contact-info">
+            <h2 class="section-title">Let's Connect</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                If you'd like to explore technology, discuss business opportunities, or just say hi, 
+                feel free to reach out.
+            </p>
+            <p>
+                <a href="mailto:asvp.0296@gmail.com" class="email-link">asvp.0296@gmail.com</a>
+            </p>
+            
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/aisuryaalla/" target="_blank" class="social-link">LinkedIn</a>
+                <a href="https://github.com/surya-1729" target="_blank" class="social-link">GitHub</a>
+                <a href="https://medium.com/@asvp.0296" target="_blank" class="social-link">Medium</a>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Smooth cursor follower
+        const cursor = document.querySelector('.cursor-follower');
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function updateCursor() {
+            cursorX += (mouseX - cursorX) * 0.1;
+            cursorY += (mouseY - cursorY) * 0.1;
+            
+            cursor.style.left = cursorX - 10 + 'px';
+            cursor.style.top = cursorY - 10 + 'px';
+            
+            requestAnimationFrame(updateCursor);
+        }
+        updateCursor();
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add hover effects for interactive elements
+        document.querySelectorAll('.experience-item, .project-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                cursor.style.transform = 'scale(2)';
+                cursor.style.backgroundColor = 'rgba(0, 255, 136, 0.2)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                cursor.style.transform = 'scale(1)';
+                cursor.style.backgroundColor = 'rgba(0, 255, 136, 0.1)';
+            });
+        });
+
+        // Typing effect for the hero title
+        function typeWriter() {
+            const text = "I'm Surya.";
+            const heroTitle = document.querySelector('.hero h1');
+            heroTitle.innerHTML = '';
+            
+            let i = 0;
+            function type() {
+                if (i < text.length) {
+                    if (text.charAt(i) === 'S') {
+                        heroTitle.innerHTML += '<span class="highlight">S</span>';
+                    } else {
+                        heroTitle.innerHTML += text.charAt(i);
+                    }
+                    i++;
+                    setTimeout(type, 100);
+                } else {
+                    // Add the rest of the highlight
+                    heroTitle.innerHTML = 'I\'m <span class="highlight">Surya</span>.';
+                }
+            }
+            
+            setTimeout(type, 1000);
+        }
+
+        // Initialize typing effect
+        document.addEventListener('DOMContentLoaded', typeWriter);
+    </script>
+</body>
 </html>
