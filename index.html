@@ -6,13 +6,13 @@
     <title>Surya Alla - AI Engineer</title>
     <style>
         :root {
-            --bg-primary: #0a0a0a;
-            --bg-secondary: #1a1a1a;
+            --bg: #0a0a0a;
             --text-primary: #ffffff;
-            --text-secondary: #a0a0a0;
-            --accent: #00ff88;
-            --accent-hover: #00cc6a;
-            --border: #333;
+            --text-secondary: #9ca3af;
+            --text-muted: #6b7280;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+            --border: rgba(255, 255, 255, 0.1);
         }
 
         * {
@@ -22,679 +22,435 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg-primary);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: var(--bg);
             color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
+            line-height: 1.7;
+            font-size: 15px;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 680px;
             margin: 0 auto;
-            padding: 2rem;
-            position: relative;
+            padding: 3rem 2rem;
+            min-height: 100vh;
         }
 
-        .hero {
-            margin: 4rem 0 6rem 0;
+        .header {
+            margin-bottom: 3rem;
             opacity: 0;
-            animation: fadeInUp 1s ease forwards;
+            animation: fadeIn 0.8s ease forwards;
         }
 
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 300;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--text-primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-subtitle {
-            font-size: 1.2rem;
+        .intro {
+            font-size: 15px;
+            line-height: 1.7;
             color: var(--text-secondary);
-            max-width: 600px;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
         }
 
-        .highlight {
-            color: var(--accent);
-            position: relative;
+        .intro strong {
+            color: var(--text-primary);
+            font-weight: 500;
         }
 
         .section {
-            margin: 4rem 0;
+            margin-bottom: 4rem;
             opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease forwards;
+            animation: fadeIn 0.8s ease forwards;
         }
 
-        .section:nth-child(2) { animation-delay: 0.2s; }
-        .section:nth-child(3) { animation-delay: 0.4s; }
-        .section:nth-child(4) { animation-delay: 0.6s; }
-        .section:nth-child(5) { animation-delay: 0.8s; }
-
-        .section-title {
-            font-size: 1.1rem;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 2rem;
-            font-weight: 500;
-        }
+        .section:nth-child(2) { animation-delay: 0.1s; }
+        .section:nth-child(3) { animation-delay: 0.2s; }
+        .section:nth-child(4) { animation-delay: 0.3s; }
+        .section:nth-child(5) { animation-delay: 0.4s; }
 
         .experience-item {
-            margin-bottom: 3rem;
-            padding: 2rem;
-            background: var(--bg-secondary);
-            border-radius: 12px;
-            border: 1px solid var(--border);
+            margin-bottom: 2.5rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid var(--border);
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
         }
 
-        .experience-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent), transparent);
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-        }
-
-        .experience-item:hover::before {
-            transform: translateX(0);
+        .experience-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
         }
 
         .experience-item:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.1);
+            transform: translateX(4px);
         }
 
-        .experience-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .experience-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        .experience-period {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            white-space: nowrap;
+        .period {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .company {
-            color: var(--accent);
+            font-size: 15px;
+            color: var(--text-primary);
             font-weight: 500;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
         }
 
-        .experience-desc {
+        .role {
+            font-size: 15px;
             color: var(--text-secondary);
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .description {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 0.8rem;
         }
 
         .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .tech-tag {
-            padding: 0.3rem 0.8rem;
-            background: rgba(0, 255, 136, 0.1);
-            color: var(--accent);
-            border-radius: 20px;
-            font-size: 0.8rem;
-            border: 1px solid rgba(0, 255, 136, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .tech-tag:hover {
-            background: rgba(0, 255, 136, 0.2);
-            transform: translateY(-2px);
+            font-size: 13px;
+            color: var(--text-muted);
         }
 
         .project-item {
             margin-bottom: 2.5rem;
-            padding: 1.5rem;
-            background: var(--bg-secondary);
-            border-radius: 8px;
-            border-left: 3px solid var(--accent);
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid var(--border);
             transition: all 0.3s ease;
+        }
+
+        .project-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
         }
 
         .project-item:hover {
-            background: rgba(26, 26, 26, 0.8);
-            transform: translateX(5px);
+            transform: translateX(4px);
+        }
+
+        .project-status {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .project-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+            font-size: 15px;
             color: var(--text-primary);
+            font-weight: 500;
+            margin-bottom: 0.8rem;
         }
 
-        .project-desc {
+        .project-description {
+            font-size: 15px;
+            line-height: 1.7;
             color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
 
-        .social-links {
+        .links {
             display: flex;
-            gap: 1.5rem;
-            margin-top: 2rem;
+            gap: 1rem;
+            margin-top: 3rem;
         }
 
-        .social-link {
-            color: var(--text-secondary);
+        .link {
+            color: var(--text-muted);
             text-decoration: none;
-            padding: 0.8rem 1.5rem;
-            border: 1px solid var(--border);
-            border-radius: 8px;
+            font-size: 13px;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid transparent;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
         }
 
-        .social-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.1), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .social-link:hover::before {
-            left: 100%;
-        }
-
-        .social-link:hover {
+        .link:hover {
             color: var(--accent);
-            border-color: var(--accent);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.2);
+            border-bottom-color: var(--accent);
         }
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+        .education-item {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
         }
 
-        .skill-category {
-            background: var(--bg-secondary);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border: 1px solid var(--border);
+        .education-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
         }
 
-        .skill-category h4 {
-            color: var(--accent);
-            margin-bottom: 1rem;
-            font-size: 1rem;
+        .education-item:hover {
+            transform: translateX(4px);
         }
 
-        .skill-list {
+        .degree {
+            font-size: 15px;
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+        }
+
+        .institution {
+            font-size: 15px;
             color: var(--text-secondary);
-            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
         }
 
-        .floating-elements {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
+        .year {
+            font-size: 13px;
+            color: var(--text-muted);
         }
 
-        .floating-dot {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: var(--accent);
-            border-radius: 50%;
-            opacity: 0.3;
-            animation: float 6s ease-in-out infinite;
+        .contact-section {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
         }
 
-        .floating-dot:nth-child(1) {
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
+        .email {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 15px;
+            transition: all 0.3s ease;
         }
 
-        .floating-dot:nth-child(2) {
-            top: 60%;
-            right: 15%;
-            animation-delay: 2s;
+        .email:hover {
+            color: var(--accent-hover);
         }
 
-        .floating-dot:nth-child(3) {
-            bottom: 30%;
-            left: 20%;
-            animation-delay: 4s;
+        .footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 13px;
+            color: var(--text-muted);
+            text-align: center;
         }
 
-        @keyframes fadeInUp {
+        .footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: var(--accent);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px) scale(1);
-                opacity: 0.3;
-            }
-            50% {
-                transform: translateY(-20px) scale(1.2);
-                opacity: 0.6;
-            }
-        }
-
         @media (max-width: 768px) {
             .container {
-                padding: 1rem;
+                padding: 2rem 1rem;
             }
-
-            .experience-header {
+            
+            .links {
                 flex-direction: column;
                 gap: 0.5rem;
             }
-
-            .social-links {
-                flex-direction: column;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
         }
 
-        .cursor-follower {
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            background: rgba(0, 255, 136, 0.1);
-            border: 1px solid var(--accent);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 1000;
-            transition: all 0.1s ease;
-            mix-blend-mode: difference;
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
         }
 
-        .experience-list {
-            position: relative;
-        }
-
-        .experience-list::before {
-            content: '';
-            position: absolute;
-            left: -1rem;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(180deg, var(--accent), transparent);
-            opacity: 0.3;
-        }
-
-        .contact-info {
-            text-align: center;
-            margin: 4rem 0;
-            padding: 2rem;
-            background: var(--bg-secondary);
-            border-radius: 12px;
-            border: 1px solid var(--border);
-        }
-
-        .email-link {
-            color: var(--accent);
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-        }
-
-        .email-link:hover {
-            text-shadow: 0 0 10px var(--accent);
+        /* Selection color */
+        ::selection {
+            background: var(--accent);
+            color: white;
         }
     </style>
 </head>
 <body>
-    <div class="floating-elements">
-        <div class="floating-dot"></div>
-        <div class="floating-dot"></div>
-        <div class="floating-dot"></div>
-    </div>
-    
-    <div class="cursor-follower"></div>
-
     <div class="container">
-        <header class="hero">
-            <h1>I'm <span class="highlight">Surya Alla</span>.</h1>
-            <p class="hero-subtitle">
-                AI Software Engineer specializing in <span class="highlight">LLM integration</span>, 
-                developer enablement, and production AI deployment. I focus on making AI accessible 
-                and developer-friendly, with 2+ years of experience coaching teams in GenAI adoption.
-            </p>
+        <header class="header">
+            <div class="intro">
+                I'm <strong>Surya</strong>. I enjoy building dynamic AI-powered products from start to finish. 
+                Focused on developing LLM integrations and production AI systems that constantly grow and 
+                improve based on real-world deployment. Always shipping.
+            </div>
         </header>
 
         <section class="section">
-            <h2 class="section-title">Experience</h2>
-            <div class="experience-list">
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div>
-                            <div class="company">FRAUNHOFER FIT</div>
-                            <h3 class="experience-title">Computer Vision & AI Engineer</h3>
-                        </div>
-                        <span class="experience-period">2023 - present</span>
-                    </div>
-                    <p class="experience-desc">
-                        Leading GenAI enablement initiatives across development teams, implementing production-ready 
-                        LLM deployment pipelines, and establishing AI development standards. Reduced document processing 
-                        latency from 30 to 10 seconds while maintaining 97% accuracy in production environments.
-                    </p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">FastAPI</span>
-                        <span class="tech-tag">Docker</span>
-                        <span class="tech-tag">AWS</span>
-                        <span class="tech-tag">GitLab CI/CD</span>
-                        <span class="tech-tag">Python</span>
-                    </div>
-                </div>
-
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div>
-                            <div class="company">INNOSADDLE GBR</div>
-                            <h3 class="experience-title">Technical Co-Founder</h3>
-                        </div>
-                        <span class="experience-period">2022 - 2024</span>
-                    </div>
-                    <p class="experience-desc">
-                        Drove cross-functional AI adoption strategy, mentored development teams in integrating 
-                        vision-language models, and designed scalable AI architecture for 3D data processing workflows. 
-                        Established knowledge sharing practices for sustainable GenAI adoption.
-                    </p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">LLMs</span>
-                        <span class="tech-tag">Computer Vision</span>
-                        <span class="tech-tag">Cloud Architecture</span>
-                        <span class="tech-tag">Docker</span>
-                    </div>
-                </div>
-
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div>
-                            <div class="company">FRAUNHOFER FIT</div>
-                            <h3 class="experience-title">Computer Vision & AI Engineer (Working Student)</h3>
-                        </div>
-                        <span class="experience-period">2022 - 2023</span>
-                    </div>
-                    <p class="experience-desc">
-                        Automated AI workflow optimization using GitLab CI/CD pipelines, coached junior developers 
-                        in AI fundamentals, and implemented developer-friendly AI tools. Reduced deployment time by 10% 
-                        and preprocessing overhead by 50%.
-                    </p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">PyTorch</span>
-                        <span class="tech-tag">OpenCV</span>
-                        <span class="tech-tag">Docker</span>
-                        <span class="tech-tag">Python</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">Featured Projects</h2>
-            
-            <div class="project-item">
-                <h3 class="project-title">Advanced RAG System with LLM Integration</h3>
-                <p class="project-desc">
-                    Engineered production-ready Retrieval-Augmented Generation system achieving 60% faster performance 
-                    and sub-second query responses. Implemented FastAPI endpoints with comprehensive error handling 
-                    and monitoring for concurrent users.
-                </p>
-                <div class="tech-stack">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">FastAPI</span>
-                    <span class="tech-tag">OpenAI GPT</span>
-                    <span class="tech-tag">Vector Databases</span>
-                    <span class="tech-tag">AWS</span>
-                </div>
-            </div>
-
-            <div class="project-item">
-                <h3 class="project-title">Model Context Protocol (MCP) – LangGraph Agent Integration</h3>
-                <p class="project-desc">
-                    Integrated MCP with LangGraph Agent for accessing external tools and APIs. Implemented automatic 
-                    tool discovery and multi-server support, enabling dynamic registration of new MCP-compatible services.
-                </p>
-                <div class="tech-stack">
-                    <span class="tech-tag">LangGraph</span>
-                    <span class="tech-tag">Model Context Protocol</span>
-                    <span class="tech-tag">Docker</span>
-                    <span class="tech-tag">Python</span>
-                </div>
-            </div>
-
-            <div class="project-item">
-                <h3 class="project-title">Multi-Model AI Server with Production Optimization</h3>
-                <p class="project-desc">
-                    Engineered scalable server infrastructure integrating multiple LLM providers (OpenAI, Ollama). 
-                    Developed comprehensive monitoring systems for production AI services with performance tracking.
-                </p>
-                <div class="tech-stack">
-                    <span class="tech-tag">FastAPI</span>
-                    <span class="tech-tag">Ollama</span>
-                    <span class="tech-tag">OpenAI API</span>
-                    <span class="tech-tag">Docker</span>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">Skills & Technologies</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h4>Agentic AI & Robotics</h4>
-                    <p class="skill-list">LLMs • Autonomous Decision-Making • Agentic Workflows • Multi-Agent Systems</p>
-                </div>
-                <div class="skill-category">
-                    <h4>AI/ML Frameworks</h4>
-                    <p class="skill-list">Huggingface Transformers • PyTorch • TensorFlow • Langchain • OpenAI APIs</p>
-                </div>
-                <div class="skill-category">
-                    <h4>Programming</h4>
-                    <p class="skill-list">Python • Modern C++ • CUDA Programming • ROS • Linux Systems</p>
-                </div>
-                <div class="skill-category">
-                    <h4>Production Systems</h4>
-                    <p class="skill-list">FastAPI • RESTful APIs • Docker • GitLab CI/CD • AWS • MLOps</p>
-                </div>
-                <div class="skill-category">
-                    <h4>Computer Vision</h4>
-                    <p class="skill-list">OpenCV • SAM • YOLO • Object Detection • Segmentation • 3D Analysis</p>
-                </div>
-                <div class="skill-category">
-                    <h4>Generative AI</h4>
-                    <p class="skill-list">LLMs • NLP • RAG • Chatbot Development • Ollama • Prompt Engineering</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">Education</h2>
             <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <div class="company">University of Siegen</div>
-                        <h3 class="experience-title">MSc. Mechatronics</h3>
-                    </div>
-                    <span class="experience-period">2023</span>
+                <div class="period">2023 - present</div>
+                <div class="company">Computer Vision & AI Engineer at Fraunhofer FIT</div>
+                <div class="description">
+                    Led GenAI enablement initiatives across development teams, coaching engineers in LLM integration 
+                    best practices and prompt engineering techniques for medical AI applications. Implemented 
+                    production-ready LLM deployment pipelines reducing document processing latency from 30 to 10 seconds 
+                    through optimized AI service integration.
                 </div>
-                <p class="experience-desc">
-                    Specialized in Embedded Control, Ubiquitous Computing, and Project Management. 
-                    Gained expertise in MATLAB, SIMULINK, microcontroller programming, and JavaScript development.
-                </p>
+                <div class="tech-stack">FastAPI • Docker • AWS • GitLab CI/CD • Python</div>
             </div>
 
             <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <div class="company">CBIT, Hyderabad</div>
-                        <h3 class="experience-title">BE Mechanical Engineering</h3>
-                    </div>
-                    <span class="experience-period">2017</span>
+                <div class="period">2022 - 2024</div>
+                <div class="company">Technical Co-Founder at InnoSaddle GbR</div>
+                <div class="description">
+                    Drove cross-functional AI adoption strategy, collaborating with stakeholders to implement 
+                    LLM-powered prototypes and establish technical development standards for production AI applications. 
+                    Designed scalable AI architecture for 3D data processing workflows with containerized deployment 
+                    solutions.
                 </div>
-                <p class="experience-desc">
-                    Foundation in engineering principles with focus on CAD/CAM, SOLIDWORKS, and software engineering. 
-                    Participated in haptic-robotic arm workshop (Robohaptica).
-                </p>
+                <div class="tech-stack">LLMs • Computer Vision • Cloud Architecture • Docker</div>
+            </div>
+
+            <div class="experience-item">
+                <div class="period">2022 - 2023</div>
+                <div class="company">Working Student at Fraunhofer FIT</div>
+                <div class="description">
+                    Automated AI workflow optimization by implementing standardized GitLab CI/CD pipelines with Docker 
+                    containerization, reducing deployment time by 10%. Coached junior developers in AI fundamentals 
+                    and computer vision techniques, improving team productivity by 30%.
+                </div>
+                <div class="tech-stack">PyTorch • OpenCV • Docker • Python • Computer Vision</div>
             </div>
         </section>
 
-        <section class="section contact-info">
-            <h2 class="section-title">Let's Connect</h2>
-            <p style="color: var(--text-secondary); margin-bottom: 1rem;">
-                If you'd like to explore technology, discuss business opportunities, or just say hi, 
-                feel free to reach out.
-            </p>
-            <p>
-                <a href="mailto:asvp.0296@gmail.com" class="email-link">asvp.0296@gmail.com</a>
-            </p>
-            
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/aisuryaalla/" target="_blank" class="social-link">LinkedIn</a>
-                <a href="https://github.com/surya-1729" target="_blank" class="social-link">GitHub</a>
-                <a href="https://medium.com/@asvp.0296" target="_blank" class="social-link">Medium</a>
+        <section class="section">
+            <div class="project-item">
+                <div class="project-status">Ongoing</div>
+                <div class="project-title">Advanced RAG System with LLM Integration</div>
+                <div class="project-description">
+                    Production-ready Retrieval-Augmented Generation system using state-of-the-art LLMs and vector databases. 
+                    Achieved 60% faster performance and sub-second query responses through backend optimization and 
+                    efficient LLM integration.
+                </div>
+                <div class="tech-stack">Python • FastAPI • OpenAI GPT • Vector Databases • AWS</div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-status">2024</div>
+                <div class="project-title">Model Context Protocol (MCP) – LangGraph Agent Integration</div>
+                <div class="project-description">
+                    Integrated the Model Context Protocol with a LangGraph Agent, enabling dynamic connection to MCP servers 
+                    for accessing external tools, APIs, and data sources. Implemented automatic tool discovery and 
+                    multi-server support.
+                </div>
+                <div class="tech-stack">LangGraph • Model Context Protocol • Docker • Python</div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-status">2024</div>
+                <div class="project-title">Multi-Model AI Server with Production Optimization</div>
+                <div class="project-description">
+                    Engineered scalable server infrastructure integrating multiple LLM providers (OpenAI, open-source models 
+                    via Ollama). Implemented optimized API interfaces for production AI workflows with dynamic model selection 
+                    and load balancing.
+                </div>
+                <div class="tech-stack">Docker • FastAPI • Ollama • OpenAI API • Production Deployment</div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-status">2023</div>
+                <div class="project-title">Model Optimization & Deployment Pipeline</div>
+                <div class="project-description">
+                    Implemented backend services for model deployment reducing memory footprint by 40% while maintaining 
+                    performance. Developed production-ready deployment workflows for edge devices with comprehensive 
+                    monitoring and reliability checks.
+                </div>
+                <div class="tech-stack">Python • Docker • TensorRT • Production Systems</div>
             </div>
         </section>
+
+        <section class="section">
+            <div class="education-item">
+                <div class="degree">MSc. Mechatronics</div>
+                <div class="institution">University of Siegen</div>
+                <div class="year">2023</div>
+            </div>
+
+            <div class="education-item">
+                <div class="degree">BE Mechanical Engineering</div>
+                <div class="institution">CBIT, Hyderabad</div>
+                <div class="year">2017</div>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="description">
+                If you would like to get in touch with me, be it for exploring a technology, a business, 
+                or to just say hi, feel free to send me an email.
+            </div>
+            <br>
+            <div>
+                <a href="mailto:asvp.0296@gmail.com" class="email">asvp.0296@gmail.com</a>
+            </div>
+        </section>
+
+        <div class="links">
+            <a href="https://www.linkedin.com/in/aisuryaalla/" target="_blank" class="link">LinkedIn</a>
+            <a href="https://github.com/surya-1729" target="_blank" class="link">Github</a>
+            <a href="https://medium.com/@asvp.0296" target="_blank" class="link">Medium</a>
+        </div>
+
+        <footer class="footer">
+            <p>Design inspiration from <a href="https://bonhomme.lol/" target="_blank">bonhomme.lol</a> by Max Bonhomme</p>
+        </footer>
     </div>
 
     <script>
-        // Smooth cursor follower
-        const cursor = document.querySelector('.cursor-follower');
-        let mouseX = 0, mouseY = 0;
-        let cursorX = 0, cursorY = 0;
-
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-        });
-
-        function updateCursor() {
-            cursorX += (mouseX - cursorX) * 0.1;
-            cursorY += (mouseY - cursorY) * 0.1;
-            
-            cursor.style.left = cursorX - 10 + 'px';
-            cursor.style.top = cursorY - 10 + 'px';
-            
-            requestAnimationFrame(updateCursor);
-        }
-        updateCursor();
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.section').forEach(section => {
-            observer.observe(section);
-        });
-
-        // Smooth scroll for internal links
+        // Smooth scrolling for any internal links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                        behavior: 'smooth'
                     });
                 }
             });
         });
 
-        // Add hover effects for interactive elements
-        document.querySelectorAll('.experience-item, .project-item').forEach(item => {
+        // Add subtle hover effects
+        const items = document.querySelectorAll('.experience-item, .project-item, .education-item');
+        items.forEach(item => {
             item.addEventListener('mouseenter', function() {
-                cursor.style.transform = 'scale(2)';
-                cursor.style.backgroundColor = 'rgba(0, 255, 136, 0.2)';
+                this.style.transform = 'translateX(4px)';
             });
-            
             item.addEventListener('mouseleave', function() {
-                cursor.style.transform = 'scale(1)';
-                cursor.style.backgroundColor = 'rgba(0, 255, 136, 0.1)';
+                this.style.transform = 'translateX(0)';
             });
         });
 
-        // Typing effect for the hero title
-        function typeWriter() {
-            const text = "I'm Surya.";
-            const heroTitle = document.querySelector('.hero h1');
-            heroTitle.innerHTML = '';
-            
-            let i = 0;
-            function type() {
-                if (i < text.length) {
-                    if (text.charAt(i) === 'S') {
-                        heroTitle.innerHTML += '<span class="highlight">S</span>';
-                    } else {
-                        heroTitle.innerHTML += text.charAt(i);
-                    }
-                    i++;
-                    setTimeout(type, 100);
-                } else {
-                    // Add the rest of the highlight
-                    heroTitle.innerHTML = 'I\'m <span class="highlight">Surya</span>.';
-                }
-            }
-            
-            setTimeout(type, 1000);
-        }
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-        // Initialize typing effect
-        document.addEventListener('DOMContentLoaded', typeWriter);
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section, .header').forEach(section => {
+            observer.observe(section);
+        });
     </script>
 </body>
 </html>
