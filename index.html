@@ -296,33 +296,78 @@
       margin-bottom: 3px;
     }
 
-    .blog-list {
-      list-style: none;
-      padding-left: 0;
-      margin-top: 6px;
-    }
-
-    .blog-item {
-      margin-bottom: 6px;
-      font-size: 0.85rem;
-    }
-
-    .blog-item-title {
-      font-weight: 500;
-      color: var(--text-main);
-    }
-
-    .blog-date {
-      font-size: 0.75rem;
-      color: var(--text-sub);
-      margin-left: 6px;
-    }
-
     .footer {
       margin-top: 28px;
       text-align: center;
       font-size: 0.75rem;
       color: #6b7280;
+    }
+
+    /* CV button */
+    .cv-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.9);
+      color: #e5e7eb;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      gap: 6px;
+      transition: 0.15s ease-in-out;
+    }
+
+    .cv-button:hover {
+      background: rgba(37, 99, 235, 0.25);
+      border-color: rgba(59, 130, 246, 0.8);
+    }
+
+    .cv-button-icon {
+      font-size: 0.9rem;
+    }
+
+    /* Blog cards */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    @media (max-width: 640px) {
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .blog-card {
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: 10px;
+      padding: 10px 11px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      font-size: 0.85rem;
+    }
+
+    .blog-card-title {
+      font-weight: 500;
+      color: var(--text-main);
+      margin-bottom: 2px;
+      display: inline-block;
+    }
+
+    .blog-card-date {
+      font-size: 0.74rem;
+      color: var(--text-sub);
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .blog-card-link {
+      font-size: 0.8rem;
     }
   </style>
 </head>
@@ -344,11 +389,20 @@
         <span>•</span>
         <a href="https://suryaalla.medium.com" target="_blank">Medium</a>
       </div>
-      <div class="header-meta">
+      <div class="header-meta" style="justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
         <span class="chip">
           <span class="chip-dot"></span>
           Open to roles in CV/ML · Research Engineer · Edge AI
         </span>
+
+        <a
+          class="cv-button"
+          href="Surya_Alla_Computer_Vision_Engineer.pdf"
+          download="Surya_Alla_Computer_Vision_Engineer.pdf"
+        >
+          <span class="cv-button-icon">⬇</span>
+          Download CV
+        </a>
       </div>
       <nav class="nav">
         <a href="#about">About</a>
@@ -591,9 +645,10 @@
           <p style="margin-top: 10px; font-size: 0.85rem; color: var(--text-sub);">
             Latest articles:
           </p>
+
           <div id="blog-container" style="margin-top: 4px; font-size: 0.85rem;">
             <span id="blog-loading">Loading latest posts…</span>
-            <ul id="blog-list" class="blog-list" style="display:none;"></ul>
+            <div id="blog-grid" class="blog-grid" style="display:none;"></div>
           </div>
 
           <p style="font-size: 0.8rem; color: var(--text-sub); margin-top: 8px;">
@@ -638,6 +693,12 @@
             <a href="mailto:asvp.0296@gmail.com">asvp.0296@gmail.com</a>.
           </p>
           <p style="margin-top: 4px;">
+            You can also download my CV here:
+            <a href="Surya_Alla_Computer_Vision_Engineer.pdf" download>
+              Download CV
+            </a>.
+          </p>
+          <p style="margin-top: 4px;">
             I am open to roles in Computer Vision, ML Engineering, and
             Research Engineering in Europe and beyond.
           </p>
@@ -655,14 +716,14 @@
     document.getElementById("year").textContent = new Date().getFullYear();
 
     // --- Medium auto-fetch section ---
-    // Uses a public RSS-to-JSON API on top of your Medium RSS feed.
+    // Uses a public RSS-to-JSON API based on your Medium RSS feed.
     (function fetchMediumPosts() {
       const apiUrl =
         "https://api.rss2json.com/v1/api.json?rss_url=" +
         encodeURIComponent("https://medium.com/feed/@suryaalla");
 
       const loadingEl = document.getElementById("blog-loading");
-      const listEl = document.getElementById("blog-list");
+      const gridEl = document.getElementById("blog-grid");
 
       fetch(apiUrl)
         .then((res) => res.json())
@@ -673,39 +734,46 @@
 
           const posts = data.items
             .filter((item) => item.categories && item.categories.length > 0)
-            .slice(0, 3); // top 3 posts
+            .slice(0, 5); // latest 5 posts
 
           if (!posts.length) {
             throw new Error("No posts found");
           }
 
           loadingEl.style.display = "none";
-          listEl.style.display = "block";
+          gridEl.style.display = "grid";
 
           posts.forEach((post) => {
-            const li = document.createElement("li");
-            li.className = "blog-item";
+            const card = document.createElement("div");
+            card.className = "blog-card";
 
             const titleLink = document.createElement("a");
             titleLink.href = post.link;
             titleLink.target = "_blank";
-            titleLink.className = "blog-item-title";
+            titleLink.className = "blog-card-title";
             titleLink.textContent = post.title;
 
             const date = new Date(post.pubDate);
             const dateSpan = document.createElement("span");
-            dateSpan.className = "blog-date";
+            dateSpan.className = "blog-card-date";
             dateSpan.textContent = date.toLocaleDateString();
 
-            li.appendChild(titleLink);
-            li.appendChild(dateSpan);
-            listEl.appendChild(li);
+            const readLink = document.createElement("a");
+            readLink.href = post.link;
+            readLink.target = "_blank";
+            readLink.className = "blog-card-link";
+            readLink.textContent = "Read on Medium →";
+
+            card.appendChild(titleLink);
+            card.appendChild(dateSpan);
+            card.appendChild(readLink);
+            gridEl.appendChild(card);
           });
         })
         .catch((err) => {
           console.warn("Failed to load Medium posts:", err);
           loadingEl.textContent =
-            "Could not load latest posts automatically. Visit Medium directly:";
+            "Could not load latest posts automatically. Please visit Medium directly.";
         });
     })();
   </script>
