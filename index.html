@@ -1,660 +1,713 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surya Alla - AI Engineer</title>
-    <style>
-        :root {
-            --bg-primary: #0d1117;
-            --bg-secondary: #161b22;
-            --text-primary: #f0f6fc;
-            --text-secondary: #8b949e;
-            --text-muted: #6e7681;
-            --accent-green: #00d084;
-            --accent-blue: #58a6ff;
-            --accent-purple: #a5a3ff;
-            --border: #21262d;
-            --code-bg: #1c2128;
-            --terminal-green: #39d353;
-        }
+  <meta charset="UTF-8" />
+  <title>Surya Vara Prasad Alla – Computer Vision & ML Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Portfolio of Surya Vara Prasad Alla – Computer Vision & Machine Learning Engineer specializing in deep learning, 3D vision, and edge deployment."
+  />
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1020;
+      --card: #111827;
+      --accent: #60a5fa;
+      --accent-soft: rgba(96, 165, 250, 0.1);
+      --text-main: #e5e7eb;
+      --text-sub: #9ca3af;
+      --border: #1f2937;
+    }
 
-        body {
-            font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            font-size: 14px;
-            font-weight: 400;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        .container {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-            min-height: 100vh;
-        }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 55%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
 
-        .terminal-header {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 8px 8px 0 0;
-            padding: 0.75rem 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0;
-        }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
 
-        .terminal-dots {
-            display: flex;
-            gap: 0.5rem;
-        }
+    a:hover {
+      text-decoration: underline;
+    }
 
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 32px 16px 48px;
+    }
 
-        .dot.red { background: #ff5f56; }
-        .dot.yellow { background: #ffbd2e; }
-        .dot.green { background: var(--terminal-green); }
+    header {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 32px;
+      border-radius: 18px;
+      padding: 24px 20px;
+      background: linear-gradient(135deg, #020617, #020617),
+        radial-gradient(circle at top left, #1d4ed8, transparent 55%),
+        radial-gradient(circle at bottom right, #0ea5e9, transparent 55%);
+      background-blend-mode: normal, soft-light, soft-light;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+    }
 
-        .terminal-title {
-            margin-left: 1rem;
-            font-size: 12px;
-            color: var(--text-secondary);
-        }
+    header h1 {
+      font-size: 2.1rem;
+      letter-spacing: 0.03em;
+      font-weight: 700;
+    }
 
-        .terminal-content {
-            background: var(--code-bg);
-            border: 1px solid var(--border);
-            border-top: none;
-            border-radius: 0 0 8px 8px;
-            padding: 2rem;
-            margin-bottom: 3rem;
-        }
+    header h2 {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text-sub);
+    }
 
-        .prompt {
-            color: var(--terminal-green);
-            font-weight: 500;
-        }
+    .header-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      font-size: 0.9rem;
+      color: var(--text-sub);
+    }
 
-        .command {
-            color: var(--accent-blue);
-        }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      font-size: 0.78rem;
+      color: var(--text-sub);
+    }
 
-        .avatar-container {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
+    .chip-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+    }
 
-        .avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 2px solid var(--border);
-            transition: border-color 0.3s ease;
-        }
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      font-size: 0.85rem;
+      margin-top: 4px;
+    }
 
-        .avatar:hover {
-            border-color: var(--accent-green);
-        }
+    .nav a {
+      padding: 4px 0;
+      opacity: 0.9;
+    }
 
-        .avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    .nav a:hover {
+      opacity: 1;
+      text-decoration: none;
+    }
 
-        .intro {
-            font-size: 15px;
-            line-height: 1.6;
-            color: var(--text-secondary);
-        }
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
 
-        .intro .highlight {
-            color: var(--accent-green);
-            font-weight: 500;
-        }
+    section {
+      background: radial-gradient(circle at top left, #020617, #020617);
+      border-radius: 16px;
+      padding: 18px 18px 20px;
+      border: 1px solid rgba(148, 163, 184, 0.16);
+    }
 
-        .section {
-            margin-bottom: 3rem;
-        }
+    .section-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #9ca3af;
+      margin-bottom: 10px;
+    }
 
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
+    .section-title span {
+      color: var(--accent);
+    }
 
-        .section-icon {
-            width: 16px;
-            height: 16px;
-            background: var(--accent-blue);
-            border-radius: 2px;
-        }
+    .section-body {
+      font-size: 0.9rem;
+      color: var(--text-sub);
+    }
 
-        .section-title {
-            font-size: 16px;
-            color: var(--text-primary);
-            font-weight: 600;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 16px;
+    }
 
-        .item {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            transition: all 0.3s ease;
-            position: relative;
-        }
+    @media (max-width: 768px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+      header {
+        padding: 20px 18px;
+      }
+    }
 
-        .item:hover {
-            border-color: var(--accent-green);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 208, 132, 0.1);
-        }
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
 
-        /* Clickable project styling */
-        .project-item {
-            cursor: pointer;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
+    .pill {
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      background: rgba(30, 64, 175, 0.16);
+      border: 1px solid rgba(129, 140, 248, 0.3);
+      color: #e5e7eb;
+      white-space: nowrap;
+    }
 
-        .project-item::after {
-            content: '→';
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            font-size: 18px;
-            color: var(--accent-green);
-            opacity: 0;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
+    .exp-item + .exp-item {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px dashed rgba(75, 85, 99, 0.7);
+    }
 
-        .project-item:hover::after {
-            opacity: 1;
-            transform: translateX(5px);
-        }
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: var(--text-main);
+    }
 
-        .project-item:hover {
-            border-color: var(--accent-green);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 208, 132, 0.15);
-        }
+    .exp-role {
+      font-weight: 600;
+    }
 
-        .project-item:hover .project-title {
-            color: var(--accent-green);
-        }
+    .exp-meta {
+      font-size: 0.8rem;
+      color: var(--text-sub);
+      margin-top: 2px;
+    }
 
-        .item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 0.75rem;
-        }
+    .exp-bullets {
+      margin-top: 6px;
+      padding-left: 16px;
+      font-size: 0.85rem;
+    }
 
-        .period {
-            font-size: 11px;
-            color: var(--text-muted);
-            background: var(--code-bg);
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+    .exp-bullets li {
+      margin-bottom: 3px;
+    }
 
-        .period.ongoing {
-            color: var(--accent-green);
-            background: rgba(0, 208, 132, 0.1);
-        }
+    .proj-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
 
-        .company, .project-title, .degree {
-            font-size: 15px;
-            color: var(--text-primary);
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            transition: color 0.3s ease;
-        }
+    @media (max-width: 640px) {
+      .proj-grid {
+        grid-template-columns: 1fr;
+      }
+    }
 
-        .role {
-            font-size: 13px;
-            color: var(--accent-blue);
-            margin-bottom: 0.75rem;
-        }
+    .proj-card {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 12px;
+      padding: 10px 11px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+    }
 
-        .description, .project-description {
-            font-size: 13px;
-            line-height: 1.5;
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-        }
+    .proj-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+      color: var(--text-main);
+    }
 
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
+    .proj-desc {
+      font-size: 0.82rem;
+      color: var(--text-sub);
+    }
 
-        .tech-tag {
-            font-size: 11px;
-            color: var(--accent-purple);
-            background: rgba(165, 163, 255, 0.1);
-            border: 1px solid rgba(165, 163, 255, 0.2);
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            font-weight: 500;
-        }
+    .proj-tags {
+      margin-top: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      font-size: 0.7rem;
+    }
 
-        .institution {
-            font-size: 13px;
-            color: var(--text-secondary);
-            margin-bottom: 0.3rem;
-        }
+    .proj-tag {
+      padding: 2px 6px;
+      border-radius: 999px;
+      background: rgba(15, 118, 110, 0.22);
+      border: 1px solid rgba(34, 197, 179, 0.5);
+    }
 
-        .year {
-            font-size: 11px;
-            color: var(--text-muted);
-        }
+    .edu-item + .edu-item {
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px dashed rgba(75, 85, 99, 0.7);
+    }
 
-        .contact-section {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 2rem;
-            text-align: center;
-            margin-top: 3rem;
-        }
+    .edu-inst {
+      font-weight: 600;
+      color: var(--text-main);
+    }
 
-        .contact-title {
-            font-size: 16px;
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-            font-weight: 600;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        }
+    .edu-meta {
+      font-size: 0.8rem;
+      color: var(--text-sub);
+    }
 
-        .contact-description {
-            font-size: 13px;
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-        }
+    .edu-detail {
+      font-size: 0.82rem;
+      color: var(--text-sub);
+      margin-top: 2px;
+    }
 
-        .email {
-            color: var(--accent-green);
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--accent-green);
-            border-radius: 6px;
-            display: inline-block;
-            transition: all 0.3s ease;
-        }
+    .list-tight {
+      list-style: disc;
+      padding-left: 16px;
+      font-size: 0.85rem;
+    }
 
-        .email:hover {
-            background: var(--accent-green);
-            color: var(--bg-primary);
-        }
+    .list-tight li {
+      margin-bottom: 3px;
+    }
 
-        .links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
+    .blog-list {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 6px;
+    }
 
-        .link {
-            color: var(--accent-blue);
-            text-decoration: none;
-            font-size: 12px;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--accent-blue);
-            border-radius: 6px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+    .blog-item {
+      margin-bottom: 6px;
+      font-size: 0.85rem;
+    }
 
-        .link:hover {
-            background: var(--accent-blue);
-            color: var(--bg-primary);
-        }
+    .blog-item-title {
+      font-weight: 500;
+      color: var(--text-main);
+    }
 
-        .link-icon {
-            width: 16px;
-            height: 16px;
-            fill: currentColor;
-        }
+    .blog-date {
+      font-size: 0.75rem;
+      color: var(--text-sub);
+      margin-left: 6px;
+    }
 
-        .footer {
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border);
-            font-size: 11px;
-            color: var(--text-muted);
-            text-align: center;
-            line-height: 1.4;
-        }
-
-        .footer p {
-            margin-bottom: 0.3rem;
-        }
-
-        .footer a {
-            color: var(--accent-blue);
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            color: var(--accent-green);
-        }
-
-        /* AI-style decorative elements */
-        .neural-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            opacity: 0.03;
-            background-image: 
-                radial-gradient(circle at 25% 25%, var(--accent-green) 1px, transparent 1px),
-                radial-gradient(circle at 75% 75%, var(--accent-blue) 1px, transparent 1px);
-            background-size: 50px 50px;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 2rem 1rem;
-            }
-            
-            .links {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .item-header {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            .avatar-container {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .project-item::after {
-                top: 1rem;
-                right: 1rem;
-            }
-        }
-
-        ::selection {
-            background: rgba(0, 208, 132, 0.2);
-            color: var(--text-primary);
-        }
-
-        /* Code-style animations */
-        .typing-cursor::after {
-            content: '|';
-            color: var(--accent-green);
-            animation: blink 1s infinite;
-        }
-
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
-        }
-    </style>
+    .footer {
+      margin-top: 28px;
+      text-align: center;
+      font-size: 0.75rem;
+      color: #6b7280;
+    }
+  </style>
 </head>
 <body>
-    <div class="neural-bg"></div>
-    
-    <div class="container">
-        <div class="terminal-header">
-            <div class="terminal-dots">
-                <div class="dot red"></div>
-                <div class="dot yellow"></div>
-                <div class="dot green"></div>
+  <div class="page">
+    <header>
+      <div>
+        <h1>Surya Vara Prasad Alla</h1>
+        <h2>Computer Vision & Machine Learning Engineer</h2>
+      </div>
+      <div class="header-meta">
+        <span>Siegen, Germany</span>
+        <span>•</span>
+        <a href="mailto:asvp.0296@gmail.com">asvp.0296@gmail.com</a>
+        <span>•</span>
+        <a href="https://www.linkedin.com/in/aisuryaalla" target="_blank">LinkedIn</a>
+        <span>•</span>
+        <a href="https://github.com/surya-1729" target="_blank">GitHub</a>
+        <span>•</span>
+        <a href="https://suryaalla.medium.com" target="_blank">Medium</a>
+      </div>
+      <div class="header-meta">
+        <span class="chip">
+          <span class="chip-dot"></span>
+          Open to roles in CV/ML · Research Engineer · Edge AI
+        </span>
+      </div>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#writing">Writing</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- About / Profile -->
+      <section id="about">
+        <div class="section-title"><span>About</span> / Profile</div>
+        <div class="section-body grid-2">
+          <div>
+            <p>
+              I am a Computer Vision Engineer with a strong software engineering
+              foundation and hands-on experience in building
+              <strong>production-grade deep learning systems</strong> for detection,
+              3D geometry, OCR, and edge deployment.
+            </p>
+            <p style="margin-top: 8px;">
+              My work spans the full lifecycle: data pipelines, model design
+              and training, optimization for GPU/Jetson, and deployment via
+              Docker/FastAPI with reproducible MLOps (DVC, MLflow, CI/CD).
+            </p>
+          </div>
+          <div>
+            <p style="font-size: 0.85rem; color: var(--text-sub);">
+              Recent focus areas:
+            </p>
+            <div class="pill-row">
+              <span class="pill">Object Detection (YOLOv9-e)</span>
+              <span class="pill">DINOv2 + CountGD</span>
+              <span class="pill">3D Vision & Point Clouds</span>
+              <span class="pill">OCR on Engineering Drawings</span>
+              <span class="pill">Jetson / TensorRT Deployment</span>
             </div>
-            <div class="terminal-title">surya@ai-engineer ~ $</div>
+          </div>
         </div>
-        
-        <div class="terminal-content">
-            <div class="avatar-container">
-                <div class="avatar">
-                    <img src="profile_foto.png" alt="Surya Alla">
-                </div>
-                <div class="intro">
-                    <span class="prompt">$</span> <span class="command">whoami</span><br>
-                    I'm <span class="highlight">Surya</span>. AI Engineer specializing in <span class="highlight">LLM integrations</span>, 
-                    production deployments, and <span class="highlight">GenAI enablement</span>. Building the future, one model at a time.
-                </div>
+      </section>
+
+      <!-- Experience -->
+      <section id="experience">
+        <div class="section-title"><span>Experience</span></div>
+        <div class="section-body">
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <div>
+                <div class="exp-role">AI Software Engineer · Fraunhofer FIT</div>
+                <div class="exp-meta">Hamm, Germany · Jan 2024 – Present</div>
+              </div>
             </div>
+            <ul class="exp-bullets">
+              <li>
+                Built a DINOv2 + CountGD poultry-counting pipeline achieving
+                <strong>95% accuracy</strong> and reducing manual inspection time
+                by <strong>70%</strong>.
+              </li>
+              <li>
+                Engineered LCNN + SAM based foot-geometry extraction with
+                custom preprocessing and post-processing to improve keypoint
+                stability and measurement precision.
+              </li>
+              <li>
+                Fine-tuned YOLOv9-e for microscopy cancer cell detection,
+                reaching <strong>90%+ accuracy</strong> in clinical workflows.
+              </li>
+              <li>
+                Developed a tile-based OCR pipeline for A2 engineering drawings,
+                cutting manual correction workload by <strong>30%</strong>.
+              </li>
+              <li>
+                Optimized and deployed CV models to edge/GPU hardware
+                (Jetson, CUDA, TensorRT) and built reproducible ML workflows
+                using DVC, MLflow, GitLab CI, and Docker.
+              </li>
+            </ul>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <div>
+                <div class="exp-role">
+                  ML Engineer & Technical Co-founder · InnoSaddle GbR
+                </div>
+                <div class="exp-meta">Siegen, Germany · Jul 2022 – Dec 2023</div>
+              </div>
+            </div>
+            <ul class="exp-bullets">
+              <li>
+                Processed 3D LiDAR/TrueDepth scans using Open3D for
+                biomechanical back-geometry analysis to support a
+                data-driven saddle-fit product.
+              </li>
+              <li>
+                Designed 3D reconstruction workflows combining geometric
+                processing and photogrammetry-inspired techniques.
+              </li>
+              <li>
+                Collaborated with biomechanics experts to integrate CV insights
+                into product design and validation workflows.
+              </li>
+            </ul>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <div>
+                <div class="exp-role">
+                  Software Engineer (Data) · Wipro Technologies
+                </div>
+                <div class="exp-meta">Hyderabad, India · Feb 2018 – Aug 2019</div>
+              </div>
+            </div>
+            <ul class="exp-bullets">
+              <li>
+                Designed ETL pipelines to transform multi-device Microsoft Teams
+                JSON logs into analytics-ready datasets in Azure Data Lake.
+              </li>
+              <li>
+                Built Azure Data Factory workflows integrating USQL, Databricks
+                (Scala), and SQL Server for reliable daily processing.
+              </li>
+              <li>
+                Improved data ingestion throughput and system stability through
+                pipeline optimization and monitoring.
+              </li>
+            </ul>
+          </div>
         </div>
+      </section>
 
-        <section class="section">
-            <div class="section-header">
-                <div class="section-icon"></div>
-                <h2 class="section-title">Experience</h2>
+      <!-- Projects -->
+      <section id="projects">
+        <div class="section-title"><span>Selected Projects</span></div>
+        <div class="section-body proj-grid">
+          <div class="proj-card">
+            <div class="proj-title">CT Reconstruction with Deep Learning</div>
+            <div class="proj-desc">
+              Implemented a hybrid analytical + neural reconstruction pipeline
+              using Radon transforms and CNNs, achieving up to
+              <strong>67.5 dB PSNR</strong> on low-dose CT.
             </div>
-            
-            <div class="item">
-                <div class="item-header">
-                    <div>
-                        <div class="company">Fraunhofer FIT</div>
-                        <div class="role">Computer Vision & AI Engineer</div>
-                    </div>
-                    <div class="period ongoing">2023 - present</div>
-                </div>
-                <div class="description">
-                    Leading GenAI enablement initiatives across development teams. Implemented production-ready 
-                    LLM deployment pipelines, reducing document processing latency from 30s → 10s while 
-                    maintaining 97% accuracy in production environments.
-                </div>
-                <div class="tech-stack">
-                    <span class="tech-tag">FastAPI</span>
-                    <span class="tech-tag">Docker</span>
-                    <span class="tech-tag">AWS</span>
-                    <span class="tech-tag">GitLab CI/CD</span>
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">LLMs</span>
-                </div>
+            <div class="proj-tags">
+              <span class="proj-tag">PyTorch</span>
+              <span class="proj-tag">Medical Imaging</span>
+              <span class="proj-tag">CT</span>
             </div>
+          </div>
 
-            <div class="item">
-                <div class="item-header">
-                    <div>
-                        <div class="company">InnoSaddle GbR</div>
-                        <div class="role">Technical Co-Founder</div>
-                    </div>
-                    <div class="period">2022 - 2024</div>
-                </div>
-                <div class="description">
-                    Drove cross-functional AI adoption strategy. Architected scalable AI systems for 3D data 
-                    processing workflows with containerized deployment solutions. Established knowledge sharing 
-                    practices for sustainable GenAI adoption.
-                </div>
-                <div class="tech-stack">
-                    <span class="tech-tag">LLMs</span>
-                    <span class="tech-tag">Computer Vision</span>
-                    <span class="tech-tag">Cloud Architecture</span>
-                    <span class="tech-tag">Docker</span>
-                </div>
+          <div class="proj-card">
+            <div class="proj-title">PointNet Architecture Analysis</div>
+            <div class="proj-desc">
+              Reproduced and benchmarked PointNet for 2D/3D classification
+              tasks, with complete point-cloud preprocessing, training, and
+              visualization pipelines.
             </div>
-
-            <div class="item">
-                <div class="item-header">
-                    <div>
-                        <div class="company">Fraunhofer FIT</div>
-                        <div class="role">AI Engineer (Working Student)</div>
-                    </div>
-                    <div class="period">2022 - 2023</div>
-                </div>
-                <div class="description">
-                    Automated AI workflow optimization using GitLab CI/CD pipelines with Docker containerization. 
-                    Coached junior developers in AI fundamentals, improving team productivity by 30%.
-                </div>
-                <div class="tech-stack">
-                    <span class="tech-tag">PyTorch</span>
-                    <span class="tech-tag">OpenCV</span>
-                    <span class="tech-tag">Docker</span>
-                    <span class="tech-tag">Python</span>
-                </div>
+            <div class="proj-tags">
+              <span class="proj-tag">Point Clouds</span>
+              <span class="proj-tag">Open3D</span>
+              <span class="proj-tag">3D Vision</span>
             </div>
-        </section>
+          </div>
 
-        <section class="section">
-            <div class="section-header">
-                <div class="section-icon" style="background: var(--accent-green);"></div>
-                <h2 class="section-title">AI Projects</h2>
+          <div class="proj-card">
+            <div class="proj-title">RAG System for Technical Docs</div>
+            <div class="proj-desc">
+              Built a production-ready Retrieval-Augmented Generation pipeline
+              using LangChain, ChromaDB, FastAPI, and Docker with sub-second
+              query responses.
             </div>
-            
-            <a href="https://github.com/surya-1729/Advanced-RAG-System-with-Production-Optimization" target="_blank" class="project-item">
-                <div class="item">
-                    <div class="item-header">
-                        <div>
-                            <div class="project-title">Advanced RAG System with LLM Integration</div>
-                        </div>
-                        <div class="period">2025</div>
-                    </div>
-                    <div class="project-description">
-                        Production-ready Retrieval-Augmented Generation system using state-of-the-art LLMs and vector databases. 
-                        Achieved 60% performance improvement with sub-second query responses through backend optimization.
-                    </div>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">FastAPI</span>
-                        <span class="tech-tag">OpenAI GPT</span>
-                        <span class="tech-tag">Vector DBs</span>
-                        <span class="tech-tag">AWS</span>
-                    </div>
-                </div>
-            </a>
-
-            <a href="https://github.com/surya-1729/LangGraph-MCP-Dynamic-AI-Tool-Integration-Framework" target="_blank" class="project-item">
-                <div class="item">
-                    <div class="item-header">
-                        <div>
-                            <div class="project-title">Model Context Protocol – LangGraph Agent</div>
-                        </div>
-                        <div class="period">2024</div>
-                    </div>
-                    <div class="project-description">
-                        Integrated MCP with LangGraph Agent for dynamic external tool connection. Implemented automatic 
-                        tool discovery and multi-server support, enabling seamless API integrations.
-                    </div>
-                    <div class="tech-stack">
-                        <span class="tech-tag">LangGraph</span>
-                        <span class="tech-tag">MCP</span>
-                        <span class="tech-tag">Docker</span>
-                        <span class="tech-tag">Python</span>
-                    </div>
-                </div>
-            </a>
-
-            <a href="https://github.com/surya-1729/Multi-Model-AI-Server-with-Production-Optimization" target="_blank" class="project-item">
-                <div class="item">
-                    <div class="item-header">
-                        <div>
-                            <div class="project-title">Multi-Model AI Server</div>
-                        </div>
-                        <div class="period">2024</div>
-                    </div>
-                    <div class="project-description">
-                        Engineered scalable server infrastructure integrating multiple LLM providers (OpenAI, Ollama). 
-                        Built comprehensive monitoring and logging systems for production AI services.
-                    </div>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Docker</span>
-                        <span class="tech-tag">FastAPI</span>
-                        <span class="tech-tag">Ollama</span>
-                        <span class="tech-tag">OpenAI API</span>
-                    </div>
-                </div>
-            </a>
-        </section>
-
-        <section class="section">
-            <div class="section-header">
-                <div class="section-icon" style="background: var(--accent-purple);"></div>
-                <h2 class="section-title">Education</h2>
+            <div class="proj-tags">
+              <span class="proj-tag">RAG</span>
+              <span class="proj-tag">LangChain</span>
+              <span class="proj-tag">FastAPI</span>
             </div>
-            
-            <a href="https://www.uni-siegen.de/" target="_blank" class="project-item">
-                <div class="item">
-                    <div class="degree">MSc. Mechatronics</div>
-                    <div class="institution">University of Siegen</div>
-                    <div class="year">2023</div>
-                </div>
-            </a>
+          </div>
 
-            <a href="https://www.cbit.ac.in/" target="_blank" class="project-item">
-                <div class="item">
-                    <div class="degree">BE Mechanical Engineering</div>
-                    <div class="institution">CBIT, Hyderabad</div>
-                    <div class="year">2017</div>
-                </div>
-            </a>
-        </section>
-
-        <section class="contact-section">
-            <div class="contact-title">[CONTACT]</div>
-            <div class="contact-description">
-                Ready to collaborate on AI projects or discuss the future of machine learning?
+          <div class="proj-card">
+            <div class="proj-title">3D Saddle-fit Analysis (InnoSaddle)</div>
+            <div class="proj-desc">
+              Processed 3D scans of horse backs to support biomechanics-driven
+              saddle fitting, focusing on accurate surface geometry extraction.
             </div>
-            <div>
-                <a href="mailto:asvp.0296@gmail.com" class="email">asvp.0296@gmail.com</a>
+            <div class="proj-tags">
+              <span class="proj-tag">3D Reconstruction</span>
+              <span class="proj-tag">Open3D</span>
+              <span class="proj-tag">LiDAR</span>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div class="links">
-                <a href="https://www.linkedin.com/in/aisuryaalla/" target="_blank" class="link">
-                    <svg class="link-icon" viewBox="0 0 24 24">
-                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                    </svg>
-                    LinkedIn
-                </a>
-                <a href="https://github.com/surya-1729" target="_blank" class="link">
-                    <svg class="link-icon" viewBox="0 0 24 24">
-                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                    </svg>
-                    GitHub
-                </a>
-                <a href="https://suryaalla.medium.com/" target="_blank" class="link">
-                    <svg class="link-icon" viewBox="0 0 24 24">
-                        <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
-                    </svg>
-                    Medium
-                </a>
+      <!-- Skills -->
+      <section id="skills">
+        <div class="section-title"><span>Skills</span></div>
+        <div class="section-body">
+          <ul class="list-tight">
+            <li>
+              <strong>Programming:</strong> Python, C++, Bash
+            </li>
+            <li>
+              <strong>Deep Learning & CV:</strong> PyTorch, TensorFlow, YOLOv5–v9,
+              DINOv2, SAM, OpenCV, Open3D, NumPy, point cloud processing
+            </li>
+            <li>
+              <strong>Deployment & MLOps:</strong> CUDA, TensorRT, Jetson, Docker,
+              FastAPI, DVC, MLflow, GitLab CI/CD, AWS SageMaker
+            </li>
+            <li>
+              <strong>Problem Domains:</strong> Object detection, OCR, 3D
+              reconstruction, medical imaging, document understanding
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Writing / Medium with auto-fetch -->
+      <section id="writing">
+        <div class="section-title"><span>Writing</span> / Medium</div>
+        <div class="section-body">
+          <p style="margin-bottom: 6px;">
+            I write about computer vision, machine learning, and engineering
+            practices on Medium:
+          </p>
+          <ul class="list-tight">
+            <li>
+              Main page:
+              <a href="https://suryaalla.medium.com" target="_blank">
+                suryaalla.medium.com
+              </a>
+            </li>
+          </ul>
+
+          <p style="margin-top: 10px; font-size: 0.85rem; color: var(--text-sub);">
+            Latest articles:
+          </p>
+          <div id="blog-container" style="margin-top: 4px; font-size: 0.85rem;">
+            <span id="blog-loading">Loading latest posts…</span>
+            <ul id="blog-list" class="blog-list" style="display:none;"></ul>
+          </div>
+
+          <p style="font-size: 0.8rem; color: var(--text-sub); margin-top: 8px;">
+            (This list updates automatically based on your Medium feed.)
+          </p>
+        </div>
+      </section>
+
+      <!-- Education & Awards -->
+      <section id="education">
+        <div class="section-title"><span>Education</span> & Awards</div>
+        <div class="section-body">
+          <div class="edu-item">
+            <div class="edu-inst">University of Siegen</div>
+            <div class="edu-meta">M.Sc. Mechatronics · 2019 – 2023 · Siegen, Germany</div>
+            <div class="edu-detail">
+              Specialization: Computer Vision, Deep Learning, C++.
             </div>
-        </section>
+          </div>
+          <div class="edu-item">
+            <div class="edu-inst">Osmania University</div>
+            <div class="edu-meta">
+              B.E. Mechanical Engineering · 2013 – 2017 · Hyderabad, India
+            </div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-inst">Awards</div>
+            <div class="edu-detail">
+              Gründungsstipendium NRW (€28,800, 2022) for developing an
+              AI/computer-vision–based startup concept.
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <footer class="footer">
-            <p>Made with ❤️ in Siegen, Germany on a calm night</p>
-        </footer>
+      <!-- Contact -->
+      <section id="contact">
+        <div class="section-title"><span>Contact</span></div>
+        <div class="section-body">
+          <p>
+            The best way to reach me is by email at
+            <a href="mailto:asvp.0296@gmail.com">asvp.0296@gmail.com</a>.
+          </p>
+          <p style="margin-top: 4px;">
+            I am open to roles in Computer Vision, ML Engineering, and
+            Research Engineering in Europe and beyond.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <div class="footer">
+      © <span id="year"></span> · Surya Vara Prasad Alla · Computer Vision & ML Engineer
     </div>
-</body>
+  </div>
 
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // --- Medium auto-fetch section ---
+    // Uses a public RSS-to-JSON API on top of your Medium RSS feed.
+    (function fetchMediumPosts() {
+      const apiUrl =
+        "https://api.rss2json.com/v1/api.json?rss_url=" +
+        encodeURIComponent("https://medium.com/feed/@suryaalla");
+
+      const loadingEl = document.getElementById("blog-loading");
+      const listEl = document.getElementById("blog-list");
+
+      fetch(apiUrl)
+        .then((res) => res.json())
+        .then((data) => {
+          if (!data || !data.items || !Array.isArray(data.items)) {
+            throw new Error("Invalid response");
+          }
+
+          const posts = data.items
+            .filter((item) => item.categories && item.categories.length > 0)
+            .slice(0, 3); // top 3 posts
+
+          if (!posts.length) {
+            throw new Error("No posts found");
+          }
+
+          loadingEl.style.display = "none";
+          listEl.style.display = "block";
+
+          posts.forEach((post) => {
+            const li = document.createElement("li");
+            li.className = "blog-item";
+
+            const titleLink = document.createElement("a");
+            titleLink.href = post.link;
+            titleLink.target = "_blank";
+            titleLink.className = "blog-item-title";
+            titleLink.textContent = post.title;
+
+            const date = new Date(post.pubDate);
+            const dateSpan = document.createElement("span");
+            dateSpan.className = "blog-date";
+            dateSpan.textContent = date.toLocaleDateString();
+
+            li.appendChild(titleLink);
+            li.appendChild(dateSpan);
+            listEl.appendChild(li);
+          });
+        })
+        .catch((err) => {
+          console.warn("Failed to load Medium posts:", err);
+          loadingEl.textContent =
+            "Could not load latest posts automatically. Visit Medium directly:";
+        });
+    })();
+  </script>
+</body>
 </html>
