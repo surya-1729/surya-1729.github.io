@@ -369,6 +369,51 @@
     .blog-card-link {
       font-size: 0.8rem;
     }
+
+    /* GitHub projects grid */
+    .gh-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    @media (max-width: 640px) {
+      .gh-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .gh-card {
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: 10px;
+      padding: 10px 11px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      font-size: 0.85rem;
+    }
+
+    .gh-card-title {
+      font-weight: 500;
+      color: var(--text-main);
+      margin-bottom: 2px;
+      display: inline-block;
+    }
+
+    .gh-card-meta {
+      font-size: 0.75rem;
+      color: var(--text-sub);
+      margin-bottom: 4px;
+    }
+
+    .gh-card-desc {
+      font-size: 0.8rem;
+      color: var(--text-sub);
+      margin-bottom: 4px;
+    }
+
+    .gh-card-link {
+      font-size: 0.8rem;
+    }
   </style>
 </head>
 <body>
@@ -543,60 +588,70 @@
       <!-- Projects -->
       <section id="projects">
         <div class="section-title"><span>Selected Projects</span></div>
-        <div class="section-body proj-grid">
-          <div class="proj-card">
-            <div class="proj-title">CT Reconstruction with Deep Learning</div>
-            <div class="proj-desc">
-              Implemented a hybrid analytical + neural reconstruction pipeline
-              using Radon transforms and CNNs, achieving up to
-              <strong>67.5 dB PSNR</strong> on low-dose CT.
+        <div class="section-body">
+          <div class="proj-grid">
+            <div class="proj-card">
+              <div class="proj-title">CT Reconstruction with Deep Learning</div>
+              <div class="proj-desc">
+                Implemented a hybrid analytical + neural reconstruction pipeline
+                using Radon transforms and CNNs, achieving up to
+                <strong>67.5 dB PSNR</strong> on low-dose CT.
+              </div>
+              <div class="proj-tags">
+                <span class="proj-tag">PyTorch</span>
+                <span class="proj-tag">Medical Imaging</span>
+                <span class="proj-tag">CT</span>
+              </div>
             </div>
-            <div class="proj-tags">
-              <span class="proj-tag">PyTorch</span>
-              <span class="proj-tag">Medical Imaging</span>
-              <span class="proj-tag">CT</span>
+
+            <div class="proj-card">
+              <div class="proj-title">PointNet Architecture Analysis</div>
+              <div class="proj-desc">
+                Reproduced and benchmarked PointNet for 2D/3D classification
+                tasks, with complete point-cloud preprocessing, training, and
+                visualization pipelines.
+              </div>
+              <div class="proj-tags">
+                <span class="proj-tag">Point Clouds</span>
+                <span class="proj-tag">Open3D</span>
+                <span class="proj-tag">3D Vision</span>
+              </div>
+            </div>
+
+            <div class="proj-card">
+              <div class="proj-title">RAG System for Technical Docs</div>
+              <div class="proj-desc">
+                Built a production-ready Retrieval-Augmented Generation pipeline
+                using LangChain, ChromaDB, FastAPI, and Docker with sub-second
+                query responses.
+              </div>
+              <div class="proj-tags">
+                <span class="proj-tag">RAG</span>
+                <span class="proj-tag">LangChain</span>
+                <span class="proj-tag">FastAPI</span>
+              </div>
+            </div>
+
+            <div class="proj-card">
+              <div class="proj-title">3D Saddle-fit Analysis (InnoSaddle)</div>
+              <div class="proj-desc">
+                Processed 3D scans of horse backs to support biomechanics-driven
+                saddle fitting, focusing on accurate surface geometry extraction.
+              </div>
+              <div class="proj-tags">
+                <span class="proj-tag">3D Reconstruction</span>
+                <span class="proj-tag">Open3D</span>
+                <span class="proj-tag">LiDAR</span>
+              </div>
             </div>
           </div>
 
-          <div class="proj-card">
-            <div class="proj-title">PointNet Architecture Analysis</div>
-            <div class="proj-desc">
-              Reproduced and benchmarked PointNet for 2D/3D classification
-              tasks, with complete point-cloud preprocessing, training, and
-              visualization pipelines.
-            </div>
-            <div class="proj-tags">
-              <span class="proj-tag">Point Clouds</span>
-              <span class="proj-tag">Open3D</span>
-              <span class="proj-tag">3D Vision</span>
-            </div>
-          </div>
-
-          <div class="proj-card">
-            <div class="proj-title">RAG System for Technical Docs</div>
-            <div class="proj-desc">
-              Built a production-ready Retrieval-Augmented Generation pipeline
-              using LangChain, ChromaDB, FastAPI, and Docker with sub-second
-              query responses.
-            </div>
-            <div class="proj-tags">
-              <span class="proj-tag">RAG</span>
-              <span class="proj-tag">LangChain</span>
-              <span class="proj-tag">FastAPI</span>
-            </div>
-          </div>
-
-          <div class="proj-card">
-            <div class="proj-title">3D Saddle-fit Analysis (InnoSaddle)</div>
-            <div class="proj-desc">
-              Processed 3D scans of horse backs to support biomechanics-driven
-              saddle fitting, focusing on accurate surface geometry extraction.
-            </div>
-            <div class="proj-tags">
-              <span class="proj-tag">3D Reconstruction</span>
-              <span class="proj-tag">Open3D</span>
-              <span class="proj-tag">LiDAR</span>
-            </div>
+          <p style="margin-top: 14px; font-size: 0.85rem; color: var(--text-sub);">
+            Latest GitHub repositories:
+          </p>
+          <div id="gh-projects-container" style="margin-top: 4px; font-size: 0.85rem;">
+            <span id="gh-loading">Loading latest repositories…</span>
+            <div id="gh-grid" class="gh-grid" style="display:none;"></div>
           </div>
         </div>
       </section>
@@ -650,7 +705,10 @@
             <span id="blog-loading">Loading latest posts…</span>
             <div id="blog-grid" class="blog-grid" style="display:none;"></div>
           </div>
-  
+
+          <p style="font-size: 0.8rem; color: var(--text-sub); margin-top: 8px;">
+            (This list updates automatically based on your Medium feed.)
+          </p>
         </div>
       </section>
 
@@ -713,7 +771,6 @@
     document.getElementById("year").textContent = new Date().getFullYear();
 
     // --- Medium auto-fetch section ---
-    // Uses a public RSS-to-JSON API based on your Medium RSS feed.
     (function fetchMediumPosts() {
       const apiUrl =
         "https://api.rss2json.com/v1/api.json?rss_url=" +
@@ -773,7 +830,74 @@
             "Could not load latest posts automatically. Please visit Medium directly.";
         });
     })();
+
+    // --- GitHub auto-fetch (latest 5 repos) ---
+    (function fetchGitHubRepos() {
+      const apiUrl =
+        "https://api.github.com/users/surya-1729/repos?sort=updated&per_page=5";
+
+      const loadingEl = document.getElementById("gh-loading");
+      const gridEl = document.getElementById("gh-grid");
+
+      fetch(apiUrl)
+        .then((res) => res.json())
+        .then((data) => {
+          if (!Array.isArray(data)) {
+            throw new Error("Invalid GitHub response");
+          }
+
+          const repos = data
+            .filter((repo) => !repo.fork) // skip forks
+            .slice(0, 5);
+
+          if (!repos.length) {
+            throw new Error("No repos found");
+          }
+
+          loadingEl.style.display = "none";
+          gridEl.style.display = "grid";
+
+          repos.forEach((repo) => {
+            const card = document.createElement("div");
+            card.className = "gh-card";
+
+            const titleLink = document.createElement("a");
+            titleLink.href = repo.html_url;
+            titleLink.target = "_blank";
+            titleLink.className = "gh-card-title";
+            titleLink.textContent = repo.name;
+
+            const meta = document.createElement("div");
+            meta.className = "gh-card-meta";
+            const lang = repo.language ? repo.language : "Unknown";
+            const updated = repo.updated_at
+              ? new Date(repo.updated_at).toLocaleDateString()
+              : "";
+            meta.textContent = lang + (updated ? " · Updated " + updated : "");
+
+            const desc = document.createElement("div");
+            desc.className = "gh-card-desc";
+            desc.textContent = repo.description || "No description provided.";
+
+            const moreLink = document.createElement("a");
+            moreLink.href = repo.html_url;
+            moreLink.target = "_blank";
+            moreLink.className = "gh-card-link";
+            moreLink.textContent = "View on GitHub →";
+
+            card.appendChild(titleLink);
+            card.appendChild(meta);
+            card.appendChild(desc);
+            card.appendChild(moreLink);
+            gridEl.appendChild(card);
+          });
+        })
+        .catch((err) => {
+          console.warn("Failed to load GitHub repos:", err);
+          loadingEl.textContent =
+            "Could not load latest repositories automatically. Please visit GitHub directly.";
+        });
+    })();
   </script>
 </body>
 </html>
-
